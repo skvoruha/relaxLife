@@ -1,7 +1,7 @@
 {
-  "name": "relaxLife",
+  "name": "relaxLive",
   "version": "1.0.0",
-  "description": "relaxLife",
+  "description": "relaxLive",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=production",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/skvoruha/relaxLife-.git"
+    "url": "git+https://github.com/skvoruha/relaxLive-.git"
   },
   "author": "Grisha Skvortsov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/skvoruha/relaxLife-/issues"
+    "url": "https://github.com/skvoruha/relaxLive-/issues"
   },
-  "homepage": "https://github.com/skvoruha/relaxLife-#readme",
+  "homepage": "https://github.com/skvoruha/relaxLive-#readme",
   "devDependencies": {
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",

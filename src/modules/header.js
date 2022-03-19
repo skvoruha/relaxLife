@@ -13,7 +13,7 @@ const header =() =>{
       count++;
       if (count > 1) {
         animate({
-          duration: 500,
+          duration: 200,
           timing(timeFraction) {
             return Math.pow(timeFraction, 3)
           },
