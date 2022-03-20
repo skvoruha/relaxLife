@@ -28,8 +28,8 @@ const sendForm = ({formId, someElem = []}) =>{
     return success
   }
 
-  const sendData = (data) =>{
-    return fetch('../server.php',{
+   const sendData =  (data) =>{
+    return fetch('./server.php',{
       method: 'POST',
       body: JSON.stringify(data),
       headers:{
