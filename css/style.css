@@ -9112,3 +9112,31 @@ strong {
 .visibility-visible {
   visibility: visible;
 }
+.flipTo::before {
+  transform: rotate(180deg);
+}
+/* код для слайдера */
+.formula-slider__slide {
+  display: none;
+}
+.formula-slider__slide-active {
+  display: flex;
+  opacity: 1;
+  margin-top: 40px;
+}
+.formula-slider__slide-active > .formula-item__icon > .formula-item-popup {
+  opacity: 1;
+  visibility: visible;
+}
+.formula-slider__slide-active
+  > .formula-item__icon
+  > .formula-item__icon-inner {
+  background: linear-gradient(90deg, #f48922 0%, #ffb015 100%);
+  color: #fff;
+}
+.formula-slider__slide-df {
+  display: flex;
+}
+.formula-slider__slide-dn {
+  display: none;
+}

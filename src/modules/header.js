@@ -6,7 +6,6 @@ const header =() =>{
   const headerContactsPhoneNumber = headerContactPhoneNumberAccord.querySelector('.header-contacts__phone-number')
 
   let count = 1
-
   headerContactsArrow.addEventListener('click', (e)=>{
     //  клик по стрелочке
     if (e.target.closest('.header-contacts__arrow > img')) {

@@ -72,9 +72,12 @@ const menu = () =>{
   // отслеживаем нажатие по документу
   // close mobile-hide
   document.addEventListener('click',(e) => {
+
     if (e.target.closest('.menu-link.no-overflow') ||
        (e.target.closest('.link-list.link-list-repair.mobile-hide.tablet-hide')) ||
-        e.target.closest('.close.mobile-hide')) {
+        //  кнопка закрытия дполнительных услуг
+        (e.target.closest('.popup.popup-repair-types') && e.target.closest('.close.mobile-hide'))
+        ) {
         openCloseList(e)
     }
   })

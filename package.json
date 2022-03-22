@@ -24,6 +24,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
-    "build": "^0.1.4"
+    "build": "^0.1.4",
+    "swiper": "^8.0.7"
   }
 }
