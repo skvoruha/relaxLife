@@ -35,26 +35,30 @@
                 <th class="table-th th-id">
                   ID<span class="svg_ui"
                     ><svg class="icon-sort">
-                      <use xlink:href="./img/sprite.svg#sorting"></use></svg
-                  ></span>
+                      <use xlink:href="./img/sprite.svg#sorting"></use>
+                    </svg>
+                  </span>
                 </th>
                 <th class="table-th th-type">
                   Тип услуги<span class="svg_ui"
                     ><svg class="icon-sort">
-                      <use xlink:href="./img/sprite.svg#sorting"></use></svg
-                  ></span>
+                      <use xlink:href="./img/sprite.svg#sorting"></use>
+                    </svg>
+                  </span>
                 </th>
                 <th class="table-th th-name">
                   Виды работ<span class="svg_ui"
                     ><svg class="icon-sort">
-                      <use xlink:href="./img/sprite.svg#sorting"></use></svg
-                  ></span>
+                      <use xlink:href="./img/sprite.svg#sorting"></use>
+                    </svg>
+                  </span>
                 </th>
                 <th class="table-th th-units">
                   Еденицы измерения<span class="svg_ui"
                     ><svg class="icon-sort">
-                      <use xlink:href="./img/sprite.svg#sorting"></use></svg
-                  ></span>
+                      <use xlink:href="./img/sprite.svg#sorting"></use>
+                    </svg>
+                  </span>
                 </th>
                 <th class="table-th th-cost">Цена за единицу</th>
                 <th class="table-th th-handler">Действия</th>
@@ -264,10 +268,11 @@
         </button>
         <h3 class="modal__header">Добавение новой услуги</h3>
         <!--<h3 class="modal__header">Изменение услуги</h3>-->
-        <form>
+        <form id="form">
           <label class="label">
             <input
-              id="type"
+              type="text"
+              name="type"
               class="input input__type"
               placeholder="Тип услуги*"
             />
@@ -275,7 +280,8 @@
 
           <label class="label">
             <input
-              id="name"
+              type="text"
+              name="name"
               class="input input__name"
               placeholder="Виды работ*"
             />
@@ -283,18 +289,23 @@
 
           <label class="label">
             <input
-              id="units"
+              type="text"
+              name="units"
               class="input input__units"
               placeholder="Единицы измерения*"
             />
           </label>
 
           <label class="label">
-            <input id="cost" class="input input__cost" placeholder="Цена*" />
+            <input name="cost" class="input input__cost" placeholder="Цена*" />
           </label>
 
-          <button class="button button-ui_firm"><span>Сохранить</span></button>
-          <button class="button cancel-button"><span>Отмена</span></button>
+          <button type="submit" class="button button-ui_firm">
+            <span>Сохранить</span>
+          </button>
+          <button type="button" class="button cancel-button">
+            <span>Отмена</span>
+          </button>
         </form>
       </div>
     </div>

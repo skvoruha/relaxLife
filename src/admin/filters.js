@@ -1,4 +1,6 @@
 export const uniqueType = (data,typeItem,select) => {
+  // сначала опустишим sekectn
+  select.innerHTML = ''
 
   let typeItemUniq = []
   // перебор все значений heroes и сохранение как массив
