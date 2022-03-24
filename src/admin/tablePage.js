@@ -17,7 +17,7 @@ const tablePage = () =>{
   const modal = document.getElementById('modal')
   const serviceBtn = document.querySelector('.btn-addItem')
   const formSend = modal.querySelector('form')
-  const btnFormSend = formSend.querySelector('.button-ui_firm')
+  const modalHeader = document.querySelector('.modal__header')
 
 
   tbody.innerHTML = ''
@@ -105,6 +105,7 @@ const tablePage = () =>{
   })
 
   serviceBtn.addEventListener('click',(e)=>{
+    modalHeader.textContent = 'Добавление новой услуги'
     modal.style.display = 'flex'
     e.preventDefault()
   })
@@ -125,6 +126,7 @@ const tablePage = () =>{
   let idItems = ''
   document.addEventListener('click',(e)=>{
     if (e.target.closest('.action-change')) {
+      modalHeader.textContent = 'Редактировать услугу'
       // открываем модалку
       modal.style.display = 'flex'
 
@@ -177,3 +179,6 @@ const tablePage = () =>{
 }
 
 export default tablePage
+
+
+// modalHeader.textContent = 'Добавление новой услуги'

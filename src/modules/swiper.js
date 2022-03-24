@@ -43,6 +43,7 @@ export const swiper = () =>{
 
     const  repairListRepair = document.querySelector('.nav-list-repair')
     const svgAll = repairListRepair.querySelectorAll('svg')
+    // ЧТОБЫ УБРАТЬ ГЛЮ С СЛАДЕРОМ ЕСЛИ display flex  - min-wight 0
     svgAll.forEach(e => {
       e.style.left = '30%'
     });
