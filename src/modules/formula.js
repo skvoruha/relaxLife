@@ -6,6 +6,8 @@ const formula = () =>{
     if (e.target.closest('.formula-item__icon')) {
       // получаем сам элемент с цифрами
       const item = e.target.closest('.formula-item')
+      // добаляем я-index чтобы элмент не был под ругими элементами
+      item.style.zIndex = '1'
       // добавляем активный класс при наведении
       item.classList.add('active-item')
       // записываем в масив под индексом какой именно элемент открылся
@@ -16,12 +18,13 @@ const formula = () =>{
       openFormula(formulaItem, item)
     }
   })
-
+  // проулшиваем событие кjulf убрали курстор с объекта
   formula.addEventListener('mouseout', (e) =>{
     // проверяем наш массив на пустоту
     if (elem[0]) {
       // собираем все выделенныq элемет и убираем opacity
       const item = elem[0]
+      item.style.zIndex = 0
       item.classList.remove('active-item')
       // получаем конкретный элемент для того чтобы поолуччить нужный formula-item-popup
       const itemIcon = e.target.closest('.formula-item__icon')
