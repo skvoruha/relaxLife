@@ -9148,3 +9148,9 @@ strong {
     flex-direction: row;
   }
 }
+@media (max-width: 1090px) {
+  .transparency-slider.row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}

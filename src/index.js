@@ -5,7 +5,8 @@ import sendForm from "./modules/sendForm";
 import privacyPolicy from "./modules/privacyPolicy";
 import formula from "./modules/formula";
 import slider from "./modules/slider";
-import modal from "./modules/portfolio";
+import portfolio from "./modules/portfolio";
+import transparency from "./modules/transparency";
 import { swiper } from "./modules/swiper";
 
 header()
@@ -14,8 +15,9 @@ phoneMask('input[name=phone]')
 privacyPolicy()
 formula()
 slider()
-modal()
+portfolio()
 // swiper()
+transparency()
 
 
 sendForm({
