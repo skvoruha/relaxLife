@@ -19,4 +19,8 @@ const animate = ({timing, draw, duration}) => {
   });
 }
 
-export {animate}
+const getClassFromId = (str) =>{
+      return str.className.trim().replace(/\s/g, '.')
+}
+
+export {animate, getClassFromId}

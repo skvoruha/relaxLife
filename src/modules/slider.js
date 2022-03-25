@@ -209,29 +209,6 @@ const slider = () =>{
       slidesPerGroup: 1,
       nested: true
     });
-
-
-    const popupPortfolioSliderWrap = document.querySelector('.popup-portfolio-slider-wrap')
-    const popupPortfolioRight = document.getElementById('popup_portfolio_right')
-    const popupPortfolioLeft = document.getElementById('popup_portfolio_left')
-
-    popupPortfolioSliderWrap.style.overflow = 'hidden'
-    popupPortfolioRight.style.zIndex = 1
-    popupPortfolioLeft.style.zIndex = 1
-
-    const popupPortfolioSwiperSliderWrap = new Swiper(`.${popupPortfolioSliderWrap.className}`, {
-      navigation: {
-        nextEl:  `.${getClassFromId(popupPortfolioRight)}`,
-        prevEl:  `.${getClassFromId(popupPortfolioLeft)}`,
-      },
-      slidesPerView: 1,
-      // количество пролистываемых слайдов
-      slidesPerGroup: 1,
-      simulateTouch: false,
-      nested: true,
-    });
-    // popup-portfolio-slider-wrap
-
 }
 
 export default slider

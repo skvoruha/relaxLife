@@ -5,7 +5,7 @@ import sendForm from "./modules/sendForm";
 import privacyPolicy from "./modules/privacyPolicy";
 import formula from "./modules/formula";
 import slider from "./modules/slider";
-import modal from "./modules/modal";
+import modal from "./modules/portfolio";
 import { swiper } from "./modules/swiper";
 
 header()

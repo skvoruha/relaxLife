@@ -9140,6 +9140,9 @@ strong {
 .formula-slider__slide-dn {
   display: none;
 }
+.active-text {
+  display: block;
+}
 @media (min-width: 900px) and (max-width: 1024px) {
   .portfolio-slider__slide {
     flex-direction: row;
