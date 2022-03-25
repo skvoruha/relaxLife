@@ -78,10 +78,7 @@ const modal = () =>{
       openTextProtfolio(+popupPortfolioSwiperSliderWrap.activeIndex)
     }
 
-
-
   })
-
 
   popupPortfolioSliderWrap.style.overflow = 'hidden'
   popupPortfolioRight.style.zIndex = 1

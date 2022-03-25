@@ -9154,3 +9154,13 @@ strong {
     flex-wrap: nowrap;
   }
 }
+.open-popup-swiper {
+  position: initial;
+  overflow: hidden;
+}
+.open-popup-swiper > .swiper-wrapper {
+  overflow: visible;
+}
+.zIndex {
+  z-index: 1;
+}
