@@ -2,7 +2,13 @@ const formula = () =>{
   // получаем весь элемент
   const formula = document.getElementById('formula')
   const elem = []
+
+
+
   formula.addEventListener('mouseover', (e) =>{
+    if (window.innerWidth < 1024) {    // конец проверки ширину жкрана
+     return
+    }
     if (e.target.closest('.formula-item__icon')) {
       // получаем сам элемент с цифрами
       const item = e.target.closest('.formula-item')
@@ -20,6 +26,9 @@ const formula = () =>{
   })
   // проулшиваем событие кjulf убрали курстор с объекта
   formula.addEventListener('mouseout', (e) =>{
+    if (window.innerWidth < 1024) {    // конец проверки ширину жкрана
+     return
+    }
     // проверяем наш массив на пустоту
     if (elem[0]) {
       // собираем все выделенныq элемет и убираем opacity
@@ -28,6 +37,10 @@ const formula = () =>{
       item.classList.remove('active-item')
       // получаем конкретный элемент для того чтобы поолуччить нужный formula-item-popup
       const itemIcon = e.target.closest('.formula-item__icon')
+      // если вдруг пустой элемент то закрываем
+      if (!itemIcon) {
+        return
+      }
       const formulaItem  = itemIcon.querySelector('.formula-item-popup')
       // console.log(formulaItem);
       closeFormula(formulaItem)
@@ -58,6 +71,7 @@ const formula = () =>{
       bottom: 90px;`
       formulaItem.classList.remove('flipTo')
   }
+
 }
 
 export default formula

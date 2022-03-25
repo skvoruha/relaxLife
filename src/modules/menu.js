@@ -58,7 +58,7 @@ const menu = () =>{
   document.addEventListener('click',(e) => {
 
     if (e.target.closest('.menu-link.no-overflow') ||
-       (e.target.closest('.link-list.link-list-repair.mobile-hide.tablet-hide')) ||
+       (e.target.closest('.link-list-repair')) ||
         //  кнопка закрытия дполнительных услуг
         (e.target.closest('.popup.popup-repair-types') && e.target.closest('.close.mobile-hide')) ||
         e.target.closest('.popup.popup-repair-types') && e.target.closest('.close')

@@ -1,132 +1,132 @@
+import Swiper, {Navigation,Pagination} from 'swiper';
+// активирум моудли с пагнацие и навигацией
+Swiper.use([Navigation,Pagination]);
+
 const slider = () =>{
-  const formulaSliderWrap = document.querySelector('.formula-slider-wrap')
-  const formulaSlider = formulaSliderWrap.querySelector('.formula-slider')
-  const slides = formulaSliderWrap.querySelectorAll('.formula-item.formula-slider__slide')
-
-  formulaSlider.innerHTML = ''
-  slides[slides.length - 1].classList.add('formula-slider__slide-df')
-  slides[0].classList.add('formula-slider__slide-active')
-  slides[1].classList.add('formula-slider__slide-df')
-
-  formulaSlider.append(slides[slides.length - 1])
-  formulaSlider.append(slides[0])
-  formulaSlider.append(slides[1])
-
-  const saveSlide = (currentSlide) =>{
-    let nextSlidesItem
-    let prevSlidesItem
-    formulaSlider.innerHTML = ''
-    // если текущий номер слайдеа меньше 0
-
-    if (currentSlide - 1 < 0) {
-      prevSlidesItem = slides.length - 1
-    } else {
-      prevSlidesItem = currentSlide -1
+    // ФУНКЦИЯ КОТОРАЯ собирает ВСЕ классы с объекта если она получена по id и ставит точки между классами требуется
+    const getClassFromId = (str) =>{
+      return str.className.trim().replace(/\s/g, '.')
     }
-    if (currentSlide + 1 >= slides.length) {
-      nextSlidesItem = 0
-    } else {
-      nextSlidesItem = currentSlide + 1
-    }
-    nextSlide(slides,prevSlidesItem,'formula-slider__slide-df')
-    nextSlide(slides,nextSlidesItem,'formula-slider__slide-df')
-    formulaSlider.append(slides[prevSlidesItem])
-    formulaSlider.append(slides[currentSlide])
-    formulaSlider.append(slides[nextSlidesItem])
-  }
+
+    // НАЧАЛО свайпера FORMULA
+    const formulaSliderWrap = document.querySelector('.formula-slider-wrap')
+    const formulaSlider = formulaSliderWrap.querySelector('.formula-slider')
+    const slides = formulaSliderWrap.querySelectorAll('.formula-item.formula-slider__slide')
 
 
-
-  // меняем стиль для блока со слайдерами
-  // если экран менье 1024 px то меняем min-height
-  const widthScreen = document.documentElement.clientWidth
-  if (widthScreen < 1024) {
     formulaSlider.style.cssText = `
-    display:flex;
-    min-height: auto;
-    margin-top: 60px`
-  }
-  const sliderArrow = document.querySelectorAll('.slider-arrow')
-  sliderArrow.forEach(element => {
-    element.style.top = '85%'
-  });
-  const timeInterval = 2000
-  let currentSlide = 0
-  // предидущий слайд
-  let interval
-  const prevSlide = (elems, index, strClass) =>{
-    elems[index].classList.remove(strClass)
-  }
+      display:flex;
+      min-width: 0;
+    `
+    // стрелки слайдера
+    const arrowRightNav = document.getElementById('formula-arrow_right')
+    const arrowLeftNav = document.getElementById('formula-arrow_left')
 
-  // следующий слайд
-  const nextSlide = (elems, index, strClass) =>{
-    elems[index].classList.add(strClass)
-  }
 
-  const autoSlide = () =>{
-    // удаляем у элемента активный класс
-    prevSlide(slides,currentSlide,'formula-slider__slide-active')
-    // убираем 3 элемент который находится до пред слайда
-    currentSlide++
-    if (currentSlide >= slides.length) {
-      currentSlide = 0
-    }
-    nextSlide(slides,currentSlide,'formula-slider__slide-active')
+    const swiper =  new Swiper('.formula-slider-wrap', {
+      navigation: {
+        nextEl: `.${getClassFromId(arrowRightNav)}`,
+        prevEl: `.${getClassFromId(arrowLeftNav)}`,
+      },
+      // количество слайдов для показа
+      // slidesPerView: 3,
+      // количество пролистываемых слайдов
+      slidesPerGroup: 1,
+      // активный слайд по центру
+      centeredSlides: true,
+      // бесконечный слайдер
+      loop: true,
+      // добавляем активый класс и класс активности свайпера
+      slideActiveClass: `swiper-slide-active active-item`,
 
-    saveSlide(currentSlide)
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+        },
+        480: {
+          slidesPerView: 1,
+           spaceBetween: 50
+        },
 
-  }
-  // по умолчанию таймер равен 1 сек
-  const startSlide = (timeInterval = 1000) =>{
-    interval = setInterval(autoSlide,timeInterval)
-
-  }
-  const stopSlide = () =>{
-    clearInterval(interval)
-  }
-  // следим за событием нажатий
-  formulaSliderWrap.addEventListener('click', (e)=>{
-    e.preventDefault()
-
-    if (e.target.closest('#formula-arrow_right')) {
-      prevSlide(slides,currentSlide,'formula-slider__slide-active')
-      // убираем 3 элемент который находится до пред слайда
-      currentSlide++
-      if (currentSlide >= slides.length) {
-        currentSlide = 0
+        // when window width is >= 640px
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 0
+        }
       }
-      nextSlide(slides,currentSlide,'formula-slider__slide-active')
 
-      saveSlide(currentSlide)
+    });
+    // КОНЕЦ СВАЙПЕРА FORMULA
+
+    // НАЧАЛО свайпера  REPAIR
+    // слайдер
+    const repairTypesSlider = document.querySelector('.repair-types-slider')
+    // получаем элемент с кнопками
+    const navListRepair = document.querySelector('.nav-list-repair')
+    // получаем счётчик слайдеров
+    const repairCounter = document.getElementById('repair-counter')
+    repairCounter.style.zIndex = '1'
+    // по клику убираем активный класс у элемента и добавляем нажатому элементу
+
+    const arrowRightRepair = document.getElementById('repair-types-arrow_right')
+    const arrowLeftRepair = document.getElementById('repair-types-arrow_left')
+
+    const repairTypesSwiperSlider = new Swiper('.repair-types-slider', {
+      init: false,
+      navigation: {
+        nextEl: `.${getClassFromId(arrowRightRepair)}`,
+        prevEl: `.${getClassFromId(arrowLeftRepair)}`,
+      },
+      // thisSwiper.swiper.update();
+      observer: true,
+      observeParents:true,
+      observeSlideChildren:true,
+
+      // количество пролистываемых слайдов
+      slidesPerGroup: 1,
+      // активный слайд по центру
+      centeredSlides: true,
+      centerInsufficientSlides: true,
+    });
+
+
+    for (let i = 1; i < repairTypesSlider.children.length; i++) {
+      repairTypesSlider.children[i].style.display = 'none'
     }
-    if (e.target.closest('#formula-arrow_left')) {
-      prevSlide(slides,currentSlide,'formula-slider__slide-active')
-      // убираем 3 элемент который находится до пред слайда
-      currentSlide--
-      if (currentSlide < 0) {
-        currentSlide = slides.length - 1
+
+    navListRepair.addEventListener('click',(e)=>{
+      if (e.target.closest('.repair-types-nav__item')) {
+        // ,записываем номер элмента
+        let classNum = e.target.classList[2]
+        classNum = classNum.replace(/[^0-9]/g,"") - 1
+        // получаем елмент с активным класслм
+        const prevActive = navListRepair.querySelector('.active')
+        prevActive.classList.remove('active')
+        const nextActive = e.target.closest('.repair-types-nav__item')
+        nextActive.classList.add('active')
+        // кнопки слайдера
+
+        const prevSlider = repairTypesSlider.querySelector('.swiper-wrapper')
+        for (let i = 0; i < prevSlider.children.length - 1; i++) {
+          prevSlider.children[i].classList.remove('swiper-slide')
+        }
+        prevSlider.style.display = 'none'
+        prevSlider.classList.remove('swiper-wrapper')
+
+        const nextSlider = repairTypesSlider.children[classNum]
+        nextSlider.style.display = 'flex'
+        nextSlider.classList.add('swiper-wrapper')
+        for (let i = 0; i < nextSlider.children.length; i++) {
+          nextSlider.children[i].classList.add('swiper-slide')
+        }
       }
-      nextSlide(slides,currentSlide,'formula-slider__slide-active')
+    })
 
-      saveSlide(currentSlide)
-    }
-  })
+    // repairTypesSwiperSlider.init()
 
-  formulaSliderWrap.addEventListener('mouseenter',(e) =>{
-    if (e.target.matches('.slider-arrow_right-formula, .slider-arrow_left-formula')) {
-      stopSlide()
-    }
-    // параметр true активирование вспытия
-    // чтобы события обрабатыались на дчернем желменте
-  }, true)
+    // КОНЕЦ СВАЙПЕРА REPAIR
 
-  formulaSliderWrap.addEventListener('mouseleave',(e) =>{
-    if (e.target.matches('.slider-arrow_right-formula')) {
-      // startSlide(timeInterval)
-    }
-  }, true)
-
-  // startSlide(timeInterval)
 }
 
 export default slider

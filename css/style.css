@@ -9116,9 +9116,9 @@ strong {
   transform: rotate(180deg);
 }
 /* код для слайдера */
-.formula-slider__slide {
+/* .formula-slider__slide {
   display: none;
-}
+} */
 .formula-slider__slide-active {
   display: flex;
   opacity: 1;

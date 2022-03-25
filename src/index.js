@@ -4,7 +4,7 @@ import phoneMask from "./modules/phoneMask";
 import sendForm from "./modules/sendForm";
 import privacyPolicy from "./modules/privacyPolicy";
 import formula from "./modules/formula";
-// import slider from "./modules/slider";
+import slider from "./modules/slider";
 import { swiper } from "./modules/swiper";
 
 header()
@@ -12,7 +12,7 @@ menu()
 phoneMask('input[name=phone]')
 privacyPolicy()
 formula()
-// slider()
+slider()
 swiper()
 
 
