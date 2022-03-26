@@ -209,7 +209,7 @@ const typesRepairs  = ()=>{
       svgAll.forEach(e => {
         e.style.left = '17%'
       });
-      navRepairTypesNav.disable()
+      // navRepairTypesNav.disable()
       }
     },400)
 }
