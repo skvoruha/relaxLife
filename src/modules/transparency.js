@@ -2,9 +2,7 @@ import Swiper, {Navigation,Pagination} from 'swiper';
 import {getClassFromId} from  './helpers'
 
 const transparency = () => {
-  if (window.innerWidth > 1024) {
-    return
-  }
+
 
 
   const arrowLeft = document.getElementById('transparency-arrow_left')
@@ -19,18 +17,20 @@ const transparency = () => {
   const popupTransparency = document.querySelector('.popup-transparency')
 
   const transparencyPopupCounter = document.getElementById('transparency-popup-counter')
+  if (window.innerWidth < 1024) {
+      const TransparencySliderWrap = new Swiper(`.transparency-slider-wrap`, {
+      navigation: {
+        nextEl:  `.${getClassFromId(arrowRight)}`,
+        prevEl:  `.${getClassFromId(arrowLeft)}`,
+      },
+      slidesPerView: 1,
+      // количество пролистываемых слайдов
+      slidesPerGroup: 1,
+      simulateTouch: false,
+      nested: true,
+    });
 
-  const TransparencySliderWrap = new Swiper(`.transparency-slider-wrap`, {
-    navigation: {
-      nextEl:  `.${getClassFromId(arrowRight)}`,
-      prevEl:  `.${getClassFromId(arrowLeft)}`,
-    },
-    slidesPerView: 1,
-    // количество пролистываемых слайдов
-    slidesPerGroup: 1,
-    simulateTouch: false,
-    nested: true,
-  });
+  }
 
   const popupTransparencySliderWrap = new Swiper('.popup-transparency-slider-wrap',{
     navigation: {
@@ -55,9 +55,8 @@ const transparency = () => {
         `
       }
     }
-
-
   })
+
 
   transparency.addEventListener('click', (e)=>{
     if (e.target.closest('.transparency-item__img')) {
