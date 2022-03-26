@@ -6,43 +6,60 @@ Swiper.use([Navigation,Pagination]);
 const typesRepairs  = ()=>{
 
   // НАЧАЛО свайпера  REPAIR
-    // слайдер
-    const repairTypesSlider = document.querySelector('.repair-types-slider')
+    // Блок над слайдераами>
+    const repairTypes = document.getElementById('repair-types')
+    const repairTypesSliders = repairTypes.querySelector('.row_reverse')
+    const sliders = repairTypesSliders.children
     // получаем элемент с кнопками
     const navListRepair = document.querySelector('.nav-list-repair')
     // получаем счётчик слайдеров
-    const repairCounter = document.getElementById('repair-counter')
-    repairCounter.style.zIndex = '1'
+    // const repairCounter = document.getElementById('repair-counter')
+    // repairCounter.style.zIndex = '1'
     // по клику убираем активный класс у элемента и добавляем нажатому элементу
 
     const arrowRightRepair = document.getElementById('repair-types-arrow_right')
     const arrowLeftRepair = document.getElementById('repair-types-arrow_left')
 
-    const repairTypesSwiperSlider = new Swiper('.repair-types-slider', {
-      navigation: {
-        nextEl: `.${getClassFromId(arrowRightRepair)}`,
-        prevEl: `.${getClassFromId(arrowLeftRepair)}`,
-      },
-      observer: true,
-      observeParents:true,
-      observeSlideChildren:true,
+    for (let i = 0; i < sliders.length - 1; i++) {
 
-      // количество пролистываемых слайдов
-      // slidesPerGroup: 1,
-      // // активный слайд по центру
-      // centeredSlides: true,
-      // centerInsufficientSlides: true,
-      // setWrapperSize: true,
-    });
-
-
-    for (let i = 1; i < repairTypesSlider.children.length; i++) {
-      repairTypesSlider.children[i].style.display = 'none'
+      sliders[i].classList.add('dn')
+      const repairCounter = document.getElementById(`repair-counter-${i + 1}`)
+      if (repairCounter) {
+        repairCounter.style.zIndex = '1'
+      }
+      // убираем все слайдеры со страницы
+      // инициализируем слайдеры
+      // +1 потому что слайдеры с инедса 1 начинаются
+      console.log(getClassFromId(repairCounter));
+      const repairTypesSwiperSlider = new Swiper(`.repair-types-slider-${i + 1}`, {
+        navigation: {
+          nextEl: `.${getClassFromId(arrowRightRepair)}`,
+          prevEl: `.${getClassFromId(arrowLeftRepair)}`,
+        },
+        // количество пролистываемых слайдов
+        pagination:{
+        el:`.repair-counter-${i + 1}`,
+        type:'fraction',
+        renderFraction: function(currentClass, totalClass){
+          return `
+            <div class="slider-counter-content">
+              <div class="slider-counter-content__current ${currentClass}"></div>
+              <div class="slider-counter-content__total ${totalClass}"></div>
+            </div>
+          `
+        }
+      }
+      });
     }
+    sliders[0].classList.remove('dn')
+    sliders[0].classList.add('df')
+    sliders[sliders.length - 1].classList.remove('dn')
+    sliders[sliders.length - 1].classList.add('db')
+
+
 
     navListRepair.addEventListener('click',(e)=>{
       if (e.target.closest('.repair-types-nav__item')) {
-        // ,записываем номер элмента
         let classNum = e.target.classList[2]
         classNum = classNum.replace(/[^0-9]/g,"") - 1
         // получаем елмент с активным класслм
@@ -51,28 +68,16 @@ const typesRepairs  = ()=>{
         const nextActive = e.target.closest('.repair-types-nav__item')
         nextActive.classList.add('active')
         // кнопки слайдера
+        const prevSliders = repairTypesSliders.querySelector('.df')
+        prevSliders.classList.remove('df')
+        prevSliders.classList.add('dn')
 
-        const prevSlider = repairTypesSlider.querySelector('.swiper-wrapper')
-        for (let i = 0; i < prevSlider.children.length - 1; i++) {
-          prevSlider.children[i].classList.remove('swiper-slide')
-          prevSlider.children[i].style.display = 'none'
-        }
-        prevSlider.style.display = 'none'
-        prevSlider.classList.remove('swiper-wrapper')
+        sliders[classNum].classList.remove('dn')
+        sliders[classNum].classList.add('df')
+        //  sliders[classNum].classList.remove('dn')
 
-        const nextSlider = repairTypesSlider.children[classNum]
-        nextSlider.style.display = 'flex'
-        nextSlider.classList.add('swiper-wrapper')
-        for (let i = 0; i < nextSlider.children.length; i++) {
-          nextSlider.children[i].classList.add('swiper-slide')
-          nextSlider.children[i].style.display = 'block'
-        }
       }
     })
-
-    // repairTypesSwiperSlider.init()
-
-    // КОНЕЦ СВАЙПЕРА REPAIR
 }
 
 export default typesRepairs

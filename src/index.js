@@ -11,6 +11,7 @@ import consultation from "./modules/consultation";
 import reviews from "./modules/reviews";
 import questions from "./modules/questions";
 import repairTypes from "./modules/repairTypes";
+import typesRepairsSlider from "./modules/typesRepairsSlider";
 import { swiper } from "./modules/swiper";
 
 header()
@@ -26,6 +27,7 @@ consultation()
 reviews()
 questions()
 repairTypes()
+typesRepairsSlider()
 
 
 sendForm({
