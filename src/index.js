@@ -7,6 +7,10 @@ import formula from "./modules/formula";
 import slider from "./modules/slider";
 import portfolio from "./modules/portfolio";
 import transparency from "./modules/transparency";
+import consultation from "./modules/consultation";
+import reviews from "./modules/reviews";
+import questions from "./modules/questions";
+import repairTypes from "./modules/repairTypes";
 import { swiper } from "./modules/swiper";
 
 header()
@@ -18,6 +22,10 @@ slider()
 portfolio()
 // swiper()
 transparency()
+consultation()
+reviews()
+questions()
+repairTypes()
 
 
 sendForm({

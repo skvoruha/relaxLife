@@ -1,14 +1,16 @@
+import {popupThank} from  './popupThank'
+
 const sendForm = ({formId}) =>{
   // получаем нужную форму по id
   const form = document.getElementById(formId)
   // получаем checkbox ? что согласны на передачу перс данных
   const checkboxLabel = form.querySelector('.checkbox__input')
 
-  const statusBlock = document.createElement('div')
+  // const statusBlock = document.createElement('div')
 
-  const loadText = 'Загрузка...'
-  const errorText = 'Ошибка'
-  const successText = 'Спасибо! Наш менеджер с вами свяжеться!'
+  // const loadText = 'Загрузка...'
+  // const errorText = 'Ошибка'
+  // const successText = 'Спасибо! Наш менеджер с вами свяжеться!'
   const modal = document.querySelector('.popup')
 
 
@@ -37,17 +39,16 @@ const sendForm = ({formId}) =>{
       }
       }).then(res => res.json())
   }
-
   const submitForm = () =>{
     const formElements = form.querySelectorAll('input')
     // СОБРАТЬ ВСЕ ДАННЫЕ ИЗ ФОРМЫ ЧТОБЫ НЕ ИСКАТЬ КАЖДЫЙ input
     const formData = new FormData(form)
     const formBody = {}
 
-    statusBlock.textContent = loadText
+    // statusBlock.textContent = loadText
 
 
-    form.append(statusBlock)
+    // form.append(statusBlock)
 
     formData.forEach((val , key) =>{
       formBody[key] = val
@@ -56,7 +57,7 @@ const sendForm = ({formId}) =>{
     if (validate(formElements)) {
       sendData(formBody)
         .then(data =>{
-          statusBlock.textContent = successText
+          // statusBlock.textContent = successText
           // мой код
           const resultForm = document.querySelector('#result_form')
           resultForm.textContent = data
@@ -64,12 +65,14 @@ const sendForm = ({formId}) =>{
           formElements.forEach(input =>{
             input.value = ''
           })
+          popupThank()
         })
         .catch(error =>{
-          statusBlock.textContent = errorText
+          // statusBlock.textContent = errorText
         })
         .finally(()=>{
-          setTimeout(() => statusBlock.textContent = '', 2000);
+
+          // setTimeout(() => statusBlock.textContent = '', 2000);
           setTimeout(() => {
           modal.style.display = 'none'
           document.body.style.overflow = ''
@@ -77,7 +80,7 @@ const sendForm = ({formId}) =>{
         })
     } else {
       alert('Данные не валидны')
-      statusBlock.textContent = ''
+      // statusBlock.textContent = ''
     }
   }
   try {

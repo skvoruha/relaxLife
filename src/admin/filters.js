@@ -35,3 +35,34 @@ export const parameterFilter = (data,numOption,selectParameterNum) =>{
     return heroesItem[numOption] === selectParameterNum
   })
 }
+
+export const uniqueTypeMain = (data,typeItem,navList) => {
+  // сначала опустишим sekectn
+  navList.innerHTML = ''
+
+  let typeItemUniq = []
+  // перебор все значений heroes и сохранение как массив
+  data.forEach((e, i) => {
+    typeItemUniq[i] = e[typeItem]
+  });
+
+  const uniqueType = Array.from(new Set(typeItemUniq));
+
+  // нужно записать в переенюу перебор типов из базы данных
+  uniqueType.forEach(e => {
+    if (e) {
+      const button = document.createElement('button')
+      button.value = e
+      button.className = 'button_o popup-repair-types-nav__item'
+      button.textContent = e
+      navList.append(button)
+      // <button class="button_o popup-repair-types-nav__item active"> Потолок: Демонтажные работы </button>
+    }
+  });
+  const buttonAll = document.createElement('button')
+  buttonAll.value = 'Все услуги'
+  buttonAll.className = 'button_o popup-repair-types-nav__item active'
+  buttonAll.textContent = 'Все услуги'
+
+  navList.prepend(buttonAll)
+}

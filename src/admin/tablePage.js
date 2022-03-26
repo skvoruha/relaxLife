@@ -63,7 +63,7 @@ const tablePage = () =>{
     }
     // записыаем вто запроса данные собраные с инпутоов
     formData.forEach((val , key) =>{
-      formBody[key] = val
+      formBody[key] = val.trim()
     })
     if (!id) {
       formBody.id = Date.now()
@@ -72,6 +72,7 @@ const tablePage = () =>{
           .then(data =>{
             formAllInput.forEach(input =>{
               input.value = ''
+              modal.style.display = 'none'
             })
             renderItemsFunc()
           })
@@ -85,6 +86,7 @@ const tablePage = () =>{
         .then(data =>{
           formAllInput.forEach(input =>{
             input.value = ''
+            modal.style.display = 'none'
           })
           renderItemsFunc()
         })
@@ -161,8 +163,6 @@ const tablePage = () =>{
       const id = row.querySelector('.table__id')
       idItems = id.textContent
 
-      console.log(idItems);
-
 
       deleteData(idItems)
         .then(data =>{
@@ -170,6 +170,7 @@ const tablePage = () =>{
             input.value = ''
           })
           renderItemsFunc(idItems)
+          idItems = false
         })
     }
   })

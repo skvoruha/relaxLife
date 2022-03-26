@@ -66,7 +66,6 @@ const transparency = () => {
   })
 
   popupTransparency.addEventListener('click',(e)=>{
-    console.log(e.target);
     if (e.target.closest('.close.mobile-hide') ||
        (popupTransparency.classList.contains('visibility-visible') &&
        (!e.target.closest('.popup-transparency-slider-wrap')))) {
