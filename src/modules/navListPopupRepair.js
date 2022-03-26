@@ -19,6 +19,8 @@ const navListPopupRepair = () =>{
       min-width: 0px;
       flex-wrap: nowrap;
       display:flex;
+      justify-content: normal;
+      flex-direction: row;
       `
       const swiper = new Swiper('.nav-popup-repair-types', {
       simulateTouch: false,
@@ -28,11 +30,12 @@ const navListPopupRepair = () =>{
         nextEl:  `.${getClassFromId(arrowRight)}`,
         prevEl:  `.${getClassFromId(arrowLeft)}`,
       },
+      nested: false,
 
       breakpoints:{
           320: {
             slidesPerView: 1,
-            spaceBetween: 20
+            spaceBetween: 40
           },
           // when window width is >= 480px
           480: {

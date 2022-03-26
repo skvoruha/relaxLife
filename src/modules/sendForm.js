@@ -93,8 +93,8 @@ const sendForm = ({formId}) =>{
 
     form.addEventListener('submit', (event) => {
       event.preventDefault()
+
       // провреям нажатие галочки на обработку персональных данных
-      console.log(!checkboxLabel.checked);
       if (!checkboxLabel.checked) {
         statusBlock.textContent = persPolicty
         // setTimeout(() => statusBlock.textContent = '', 2000);

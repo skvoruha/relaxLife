@@ -601,6 +601,13 @@
       "units": "м2",
       "cost": "130",
       "id": 1648248159945
+    },
+    {
+      "type": "qweqw",
+      "name": "qweqw",
+      "units": "wqeqwe",
+      "cost": "123123",
+      "id": 1648316505628
     }
   ],
   "users": [
@@ -611,6 +618,11 @@
     },
     {
       "login": "userGri",
+      "password": "1234",
+      "salt": "4321"
+    },
+    {
+      "login": "userGrisha",
       "password": "1234",
       "salt": "4321"
     }
