@@ -96,9 +96,6 @@ const modal = () =>{
       openTextProtfolio(+popupPortfolioSwiperSliderWrap.activeIndex)
     }
 
-    console.log(e.target.closest('.visibility-visible'));
-    //
-
   })
 
   popupPortfolioSliderWrap.style.overflow = 'hidden'

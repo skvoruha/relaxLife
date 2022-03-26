@@ -190,6 +190,12 @@ const typesRepairs  = ()=>{
     setInterval(()=>{
       const widthScreen = window.innerWidth
 
+        if (window.innerWidth > 1024) {
+          navRepairTypesNav.disable()
+        } else {
+           navRepairTypesNav.enable()
+        }
+
       if (window.innerWidth > 900 && window.innerWidth < 1024) {
         navRepairTypesNav.init()
         navRepairTypesNav.enable()
