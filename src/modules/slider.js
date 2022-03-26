@@ -117,12 +117,29 @@ const slider = () =>{
         arrowRightPortfolio.style.display = 'none'
         arrowLeftPortfolio.style.display = 'flex'
       }
+      if (active === 1) {
+        arrowLeftPortfolio.style.display = 'flex'
+      }
+
     })
     arrowLeftPortfolio.addEventListener('click',()=>{
       const active = +portfolioSwiperSliderWrap.activeIndex
+
+      let end
+      if (window.innerWidth > 1024) {
+        end = +portfolioSlider.children.length - 3
+      } else if (window.innerWidth > 900 && window.innerWidth < 1024){
+        end = +portfolioSlider.children.length - 2
+      } else {
+        end = +portfolioSlider.children.length - 1
+      }
+
       if (active === 0) {
         arrowRightPortfolio.style.display = 'flex'
         arrowLeftPortfolio.style.display = 'none'
+      }
+      if (active === end - 1) {
+        arrowRightPortfolio.style.display = 'flex'
       }
     })
 

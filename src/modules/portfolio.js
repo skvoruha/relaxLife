@@ -73,6 +73,12 @@ const modal = () =>{
         popupPortfolioRight.style.display = 'none'
         popupPortfolioLeft.style.display = 'block'
       }
+      if (popupPortfolioSwiperSliderWrap.activeIndex == 1) {
+        popupPortfolioLeft.style.display = 'block'
+      }
+      if (popupPortfolioSwiperSliderWrap.activeIndex == portfolioSliderSlideFrame.length - 2) {
+        popupPortfolioRight.style.display = 'block'
+      }
       closeTextPortfolio()
       // открываем тект по текущему индексу
       openTextProtfolio(+popupPortfolioSwiperSliderWrap.activeIndex)

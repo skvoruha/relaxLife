@@ -1,7 +1,6 @@
 export const renderItems = (data,tbody)=>{
   tbody.innerHTML = ''
   // НАДО БУДЕТ ОИЧТИТЬ ТАБЛИЦУ ПЕРЕД ЗАПОЛНЕНИЕМ
-  console.log(data.length);
   for (let i = 0; i < data.length; i++) {
     let row = document.createElement('tr');
       row.className = 'table__row'

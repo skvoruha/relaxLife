@@ -26,6 +26,8 @@ const repairTypes = () =>{
 
   navList.addEventListener('click',(e)=>{
     if (e.target.closest('.popup-repair-types-nav__item')) {
+
+
       const response = e.target.value.trim()
       if (response === 'Все услуги') {
         getData(`http://localhost:3000/items`).then((data) =>{
@@ -36,6 +38,14 @@ const repairTypes = () =>{
           renderItems(data,tbody)
         })
       }
+
+      const items = document.querySelector('.nav-list-popup-repair')
+      const itemDel = items.querySelector('.active-btn')
+      itemDel.classList.remove('active-btn')
+      e.target.classList.add('active-btn')
+
+      const switchInner = document.getElementById('switch-inner')
+      switchInner.textContent = response
     }
   })
 

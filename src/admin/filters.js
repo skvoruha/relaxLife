@@ -61,7 +61,7 @@ export const uniqueTypeMain = (data,typeItem,navList) => {
   });
   const buttonAll = document.createElement('button')
   buttonAll.value = 'Все услуги'
-  buttonAll.className = 'button_o popup-repair-types-nav__item  swiper-slide active'
+  buttonAll.className = 'button_o popup-repair-types-nav__item  swiper-slide active-btn'
   buttonAll.textContent = 'Все услуги'
 
   navList.prepend(buttonAll)
