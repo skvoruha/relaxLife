@@ -4,9 +4,6 @@ import { uniqueTypeMain } from "../admin/filters"
 
 const repairTypes = () =>{
   const listRepairTypes = document.querySelector('.popup-repair-types')
-  // таблица открыта временно
-  listRepairTypes.classList.add('visibility-visible')
-
   let tableParent = document.querySelector('.popup-repair-types-content-table__list')
   const tbody = tableParent.querySelector('tbody')
 
