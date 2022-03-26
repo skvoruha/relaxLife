@@ -125,6 +125,16 @@ const typesRepairs  = ()=>{
           e.style.left = '13%'
         });
       }
+      if (window.innerWidth > 786 && window.innerWidth < 986) {
+        svgAll.forEach(e => {
+          e.style.left = '34%'
+        });
+      }
+      if (window.innerWidth > 1024) {
+        svgAll.forEach(e => {
+          e.style.left = '30%'
+        });
+      }
       repairListRepair.style.flexWrap = 'nowrap';
       repairListRepair.style.minWidth = 'fit-content';
       repairListRepair.style.justifyContent = 'space-evenly'
@@ -146,6 +156,13 @@ const typesRepairs  = ()=>{
             type: "fraction",
         },
       })
+      if (window.innerWidth < 480) {
+        // console.log(arrowRightNav);
+        // console.log(repairArrowRight);
+        // console.log(navRepairTypesNav.navigation.nextEl);
+        // repairArrowLeft.style.display = 'block'
+        // repairArrowRight.style.display = 'block'
+      }
 
 
     // const repairTypesSwiperSlider = new Swiper(`.nav.repair-types-nav`, {
@@ -173,13 +190,21 @@ const typesRepairs  = ()=>{
     setInterval(()=>{
       const widthScreen = window.innerWidth
 
-      if (window.innerWidth < 1024) {
+      if (window.innerWidth > 900 && window.innerWidth < 1024) {
         navRepairTypesNav.init()
         navRepairTypesNav.enable()
         svgAll.forEach(e => {
           e.style.left = '30%'
         });
-      } else {
+      } else  if (window.innerWidth > 786 && window.innerWidth < 986) {
+        svgAll.forEach(e => {
+          e.style.left = '34%'
+        })}
+        else  if (window.innerWidth < 786 && window.innerWidth > 568) {
+        svgAll.forEach(e => {
+          e.style.left = '27%'
+        })}
+      else {
       //  repairTypesSwiperSlider.destroy()
       svgAll.forEach(e => {
         e.style.left = '17%'

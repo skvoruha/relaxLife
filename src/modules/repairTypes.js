@@ -46,6 +46,8 @@ const repairTypes = () =>{
 
       const switchInner = document.getElementById('switch-inner')
       switchInner.textContent = response
+
+
     }
   })
 

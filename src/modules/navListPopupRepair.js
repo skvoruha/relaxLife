@@ -17,13 +17,12 @@ const navListPopupRepair = () =>{
     if (window.innerWidth < 1024) {
       navListSelect.style.cssText = `
       min-width: 0px;
-      flex-wrap: nowrap;
+      flex-flow: row nowrap;
       display:flex;
       justify-content: normal;
       flex-direction: row;
       `
-      const swiper = new Swiper('.nav-popup-repair-types', {
-      simulateTouch: false,
+      const swiperNav = new Swiper('.nav-popup-repair-types', {
       slidesPerView:2,
       spaceBetween: 20,
       navigation: {
@@ -31,6 +30,10 @@ const navListPopupRepair = () =>{
         prevEl:  `.${getClassFromId(arrowLeft)}`,
       },
       nested: false,
+
+      observer: true,
+      observeParents: true,
+      observeSlideChildren: true,
 
       breakpoints:{
           320: {
@@ -51,13 +54,7 @@ const navListPopupRepair = () =>{
     });
 
     }
-  // setInterval(()=>{
-  //    if (window.innerWidth < 1024) {
-  //     swiper.enable()
-  //   } else {
-  //     swiper.disable()
-  //   }
-  // }, 100)
+
 }
 // getClassFromId
 export default navListPopupRepair
