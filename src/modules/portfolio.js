@@ -41,19 +41,22 @@ const modal = () =>{
   document.addEventListener('click',(e)=> {
     // ЭТО НОМЕР НАЖАТОГО ИЛИ ВЫБРАННОГО ПОРТФОЛИО
     let count
-
     if (!e.target.closest('.popup-dialog-portfolio') &&
-      portfolioModal.classList.contains('visibility-visible')) {
+      portfolioModal.classList.contains('visibility-visible') || e.target.closest('.close.tablet-hide.desktop-hide')) {
       closeTextPortfolio()
       closePortfolioModal()
     }
 
     if (e.target.closest('.portfolio-slider__slide-frame')) {
       openPortfolioModal()
+      let index = Array.prototype.indexOf.call(e.target.parentNode.children, e.target);
       for (let i = 0; i < portfolioSliderSlideFrame.length; i++) {
         if (portfolioSliderSlideFrame[i] == e.target) {
           count = i
         }
+      }
+      if (!count) {
+        count = index
       }
       openTextProtfolio(count)
     }

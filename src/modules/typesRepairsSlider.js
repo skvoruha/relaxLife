@@ -207,7 +207,7 @@ const typesRepairs  = ()=>{
       else {
       //  repairTypesSwiperSlider.destroy()
       svgAll.forEach(e => {
-        e.style.left = '17%'
+        e.style.left = '14%'
       });
       // navRepairTypesNav.disable()
       }
