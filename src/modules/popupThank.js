@@ -17,4 +17,8 @@ export const popupThank = () =>{
       popupThank.classList.remove('visibility-visible')
     }
   })
+
+  setTimeout(() => {
+    popupThank.classList.remove('visibility-visible')
+  }, 3000);
 }
