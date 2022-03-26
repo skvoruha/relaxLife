@@ -1,7 +1,9 @@
 export const popupThank = () =>{
 
   const activePopup = document.querySelector('.visibility-visible')
-  activePopup.classList.remove('visibility-visible')
+  if (activePopup) {
+    activePopup.classList.remove('visibility-visible')
+  }
 
   const popupThank = document.querySelector('.popup-thank')
   popupThank.classList.add('visibility-visible')

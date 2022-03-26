@@ -7,11 +7,14 @@ const sendForm = ({formId}) =>{
   const checkboxLabel = form.querySelector('.checkbox__input')
 
   // const statusBlock = document.createElement('div')
+  const statusBlock = form.querySelector('.status')
 
-  // const loadText = 'Загрузка...'
-  // const errorText = 'Ошибка'
-  // const successText = 'Спасибо! Наш менеджер с вами свяжеться!'
+
+  const loadText = 'Загрузка...'
+  const errorText = 'Ошибка'
+  const successText = 'Спасибо! Наш менеджер с вами свяжеться!'
   const modal = document.querySelector('.popup')
+  const persPolicty = 'Нажмите кнопку согласия передачи перс. даннных'
 
 
 
@@ -19,10 +22,12 @@ const sendForm = ({formId}) =>{
     let success = true
     // провреям в списке еси там не ни одного класа success то success равняем false
     list.forEach(input =>{
-      if (input.name == 'user_name' && input.value.length < 2) {
+      if (input.name == 'name' && input.value.length < 2) {
+          statusBlock.textContent = "Имя должно быть не менее двух символов"
           success = false
-      }
-      if (input.name == 'user_phone' && input.value.length < 6) {
+        }
+      if (input.name == 'phone' && input.value.length < 18) {
+          statusBlock.textContent = "Номер телефона должен содержать не менее 11 символов"
           success = false
       }
     })
@@ -31,7 +36,7 @@ const sendForm = ({formId}) =>{
   }
 
    const sendData =  (data) =>{
-    return fetch('./server.php',{
+    return fetch('https://jsonplaceholder.typicode.com/posts',{
       method: 'POST',
       body: JSON.stringify(data),
       headers:{
@@ -45,10 +50,7 @@ const sendForm = ({formId}) =>{
     const formData = new FormData(form)
     const formBody = {}
 
-    // statusBlock.textContent = loadText
-
-
-    // form.append(statusBlock)
+    statusBlock.textContent = loadText
 
     formData.forEach((val , key) =>{
       formBody[key] = val
@@ -57,10 +59,7 @@ const sendForm = ({formId}) =>{
     if (validate(formElements)) {
       sendData(formBody)
         .then(data =>{
-          // statusBlock.textContent = successText
-          // мой код
-          const resultForm = document.querySelector('#result_form')
-          resultForm.textContent = data
+          statusBlock.textContent = successText
 
           formElements.forEach(input =>{
             input.value = ''
@@ -68,23 +67,26 @@ const sendForm = ({formId}) =>{
           popupThank()
         })
         .catch(error =>{
-          // statusBlock.textContent = errorText
+          statusBlock.textContent = errorText
         })
         .finally(()=>{
 
           // setTimeout(() => statusBlock.textContent = '', 2000);
           setTimeout(() => {
+          statusBlock.textContent = ' '
           modal.style.display = 'none'
-          document.body.style.overflow = ''
-        }, 4000);
+          // document.body.style.overflow = ''
+        }, 3000);
         })
     } else {
-      alert('Данные не валидны')
+      // alert('Данные не валидны')
       // statusBlock.textContent = ''
+      setTimeout(() => {statusBlock.textContent = ' ' }, 3000);
     }
   }
   try {
     // проверяем наличие формы
+    // form.append(statusBlock)
     if (!form) {
       throw new Error(' Верните форму на место пожалуйста')
     }
@@ -92,6 +94,12 @@ const sendForm = ({formId}) =>{
     form.addEventListener('submit', (event) => {
       event.preventDefault()
       // провреям нажатие галочки на обработку персональных данных
+      console.log(!checkboxLabel.checked);
+      if (!checkboxLabel.checked) {
+        statusBlock.textContent = persPolicty
+        // setTimeout(() => statusBlock.textContent = '', 2000);
+      }
+
       if (checkboxLabel.checked) {
         submitForm()
       }

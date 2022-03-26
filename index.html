@@ -307,7 +307,7 @@
               <div class="feedback__title">
                 Получите консультацию от специалиста в удобное для Вас время
               </div>
-              <form class="feedback__form" id="feedback1">
+              <form class="feedback__form" id="feedback1" novalidate>
                 <div class="feedback__input">
                   <input
                     class="input feedback__input-input"
@@ -318,6 +318,10 @@
                     minlength="18"
                   />
                 </div>
+                <div
+                  class="status"
+                  style="position: absolute; color: black; top: 64%"
+                ></div>
                 <button type="submit" class="button">Перезвоните мне</button>
                 <div class="checkbox">
                   <input
@@ -1236,7 +1240,7 @@
         <div class="feedback-block__descr">
           Обсудите проект со специалистом или вызовите замерщика.
         </div>
-        <form class="feedback-block__form" id="feedback2">
+        <form class="feedback-block__form" id="feedback2" novalidate>
           <label
             ><span><sup>*</sup>Введите ваше имя:</span>
             <input
@@ -1257,6 +1261,7 @@
               placeholder="+7 (___)___-__-__"
               minlength="18"
           /></label>
+          <div class="status" style="position: absolute; top: 53%"></div>
           <button type="submit" class="button button-feedback-block">
             Перезвоните мне
           </button>
@@ -1770,7 +1775,7 @@
             <div class="feedback__title">
               Получите консультацию от специалиста в удобное для Вас время
             </div>
-            <form class="feedback__form" id="feedback3">
+            <form class="feedback__form" id="feedback3" novalidate>
               <div class="feedback__input">
                 <input
                   class="input feedback__input-input"
@@ -1781,6 +1786,10 @@
                   minlength="18"
                 />
               </div>
+              <div
+                class="status"
+                style="position: absolute; color: black; top: 64%"
+              ></div>
               <button type="submit" class="button">Перезвоните мне</button>
               <div class="checkbox">
                 <input class="checkbox__input" type="checkbox" id="checkbox3" />
@@ -2019,7 +2028,7 @@
         <div class="feedback-block__descr">
           Обсудите проект со специалистом или вызовите замерщика.
         </div>
-        <form class="feedback-block__form" id="feedback4">
+        <form class="feedback-block__form" id="feedback4" novalidate>
           <label
             ><span><sup>*</sup>Введите ваше имя:</span>
             <input
@@ -2040,6 +2049,7 @@
               placeholder="+7 (___)___-__-__"
               minlength="18"
           /></label>
+          <div class="status" style="position: absolute; top: 51%"></div>
           <button type="submit" class="button button-feedback-block">
             Перезвоните мне
           </button>
@@ -2413,7 +2423,7 @@
         <div class="feedback-block__descr">
           Обсудите проект со специалистом или вызовите замерщика.
         </div>
-        <form class="feedback-block__form" id="feedback5">
+        <form class="feedback-block__form" id="feedback5" novalidate>
           <label
             ><span><sup>*</sup>Введите ваше имя:</span>
             <input
@@ -2434,6 +2444,7 @@
               placeholder="+7 (___)___-__-__"
               minlength="18"
           /></label>
+          <div class="status" style="position: absolute; top: 51%"></div>
           <button type="submit" class="button button-feedback-block">
             Перезвоните мне
           </button>
@@ -2651,7 +2662,7 @@
         <div class="feedback__title">
           Получите консультацию от специалиста в удобное для Вас время
         </div>
-        <form class="feedback__form" id="feedback6">
+        <form class="feedback__form" id="feedback6" novalidate>
           <div class="feedback__input">
             <input
               class="input feedback__input-input"
@@ -2662,6 +2673,7 @@
               minlength="18"
             />
           </div>
+          <div class="status" style="position: absolute; top: 65%"></div>
           <button type="submit" class="button button-consultation">
             Перезвоните мне
           </button>
@@ -2765,16 +2777,24 @@
             <div class="nav-wrap nav-wrap-repair">
               <nav class="nav-popup nav-popup-repair-types transparancy-cut">
                 <div class="nav-list nav-list-popup-repair swiper-wrapper">
-                  <button class="button_o popup-repair-types-nav__item swiper-slide active">
+                  <button
+                    class="button_o popup-repair-types-nav__item swiper-slide active"
+                  >
                     Потолок: Демонтажные работы
                   </button>
-                  <button class="button_o popup-repair-types-nav__item swiper-slide">
+                  <button
+                    class="button_o popup-repair-types-nav__item swiper-slide"
+                  >
                     Потолок: Монтажные работы
                   </button>
-                  <button class="button_o popup-repair-types-nav__item swiper-slide">
+                  <button
+                    class="button_o popup-repair-types-nav__item swiper-slide"
+                  >
                     Стены: Демонтажные работы
                   </button>
-                  <button class="button_o popup-repair-types-nav__item swiper-slide">
+                  <button
+                    class="button_o popup-repair-types-nav__item swiper-slide"
+                  >
                     Стены: Монтажные работы
                   </button>
                 </div>

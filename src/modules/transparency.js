@@ -2,6 +2,9 @@ import Swiper, {Navigation,Pagination} from 'swiper';
 import {getClassFromId} from  './helpers'
 
 const transparency = () => {
+  if (window.innerWidth > 1024) {
+    return
+  }
 
 
   const arrowLeft = document.getElementById('transparency-arrow_left')
