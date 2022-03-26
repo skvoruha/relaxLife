@@ -11,7 +11,6 @@ const modal = () =>{
 
   const popupPortfolio = document.querySelector('.popup-portfolio')
 
-  console.log(popupPortfolio);
   // получаем все слайды по которым мы нажимаем
   const portfolioSliderSlideFrame = portfolioSlider.querySelectorAll('.portfolio-slider__slide-frame')
   // получаем элементы с текстами
@@ -51,9 +50,11 @@ const modal = () =>{
       portfolioModal.classList.contains('visibility-visible') || e.target.closest('.close.tablet-hide.desktop-hide')) {
       closeTextPortfolio()
       closePortfolioModal()
+      document.body.style.overflow = ''
     }
 
     if (e.target.closest('.portfolio-slider__slide-frame')) {
+
       openPortfolioModal()
       let index = Array.prototype.indexOf.call(e.target.parentNode.children, e.target);
       for (let i = 0; i < portfolioSliderSlideFrame.length; i++) {
@@ -65,6 +66,8 @@ const modal = () =>{
         count = index
       }
       openTextProtfolio(count)
+
+      document.body.style.overflow = 'hidden'
     }
 
     if (e.target.closest('.popup-arrow_left')) {
@@ -92,6 +95,9 @@ const modal = () =>{
       // открываем тект по текущему индексу
       openTextProtfolio(+popupPortfolioSwiperSliderWrap.activeIndex)
     }
+
+    console.log(e.target.closest('.visibility-visible'));
+    //
 
   })
 

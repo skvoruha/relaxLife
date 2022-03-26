@@ -21,7 +21,12 @@ const menu = () =>{
 
   const openCloseList = (e) =>{
     e.preventDefault()
+    document.body.style.overflow = ''
     popupRepairTypes.classList.toggle('visibility-visible')
+
+    if (popupRepairTypes.closest('.visibility-visible')) {
+      document.body.style.overflow = 'hidden'
+    }
     closeMenu()
   }
 

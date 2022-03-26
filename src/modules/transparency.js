@@ -60,6 +60,7 @@ const transparency = () => {
 
   transparency.addEventListener('click', (e)=>{
     if (e.target.closest('.transparency-item__img')) {
+       document.body.style.overflow = 'hidden'
       popupTransparency.classList.add('visibility-visible')
       elemTransparencySliderWrap.classList.add('open-popup-swiper')
 
@@ -72,6 +73,7 @@ const transparency = () => {
        (popupTransparency.classList.contains('visibility-visible') &&
        (!e.target.closest('.popup-transparency-slider-wrap')))) {
 
+      document.body.style.overflow = ''
       popupTransparency.classList.remove('visibility-visible')
       elemTransparencySliderWrap.classList.remove('open-popup-swiper')
     }
