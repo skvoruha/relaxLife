@@ -53,7 +53,7 @@ export const uniqueTypeMain = (data,typeItem,navList) => {
     if (e) {
       const button = document.createElement('button')
       button.value = e
-      button.className = 'button_o popup-repair-types-nav__item'
+      button.className = 'button_o popup-repair-types-nav__item  swiper-slide'
       button.textContent = e
       navList.append(button)
       // <button class="button_o popup-repair-types-nav__item active"> Потолок: Демонтажные работы </button>
@@ -61,7 +61,7 @@ export const uniqueTypeMain = (data,typeItem,navList) => {
   });
   const buttonAll = document.createElement('button')
   buttonAll.value = 'Все услуги'
-  buttonAll.className = 'button_o popup-repair-types-nav__item active'
+  buttonAll.className = 'button_o popup-repair-types-nav__item  swiper-slide active'
   buttonAll.textContent = 'Все услуги'
 
   navList.prepend(buttonAll)

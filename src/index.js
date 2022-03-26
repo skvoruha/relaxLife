@@ -12,6 +12,7 @@ import reviews from "./modules/reviews";
 import questions from "./modules/questions";
 import repairTypes from "./modules/repairTypes";
 import typesRepairsSlider from "./modules/typesRepairsSlider";
+import navListPopupRepair from "./modules/navListPopupRepair";
 
 header()
 menu()
@@ -26,6 +27,7 @@ reviews()
 questions()
 repairTypes()
 typesRepairsSlider()
+navListPopupRepair()
 
 
 sendForm({
