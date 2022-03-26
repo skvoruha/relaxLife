@@ -36,6 +36,12 @@ const repairTypes = () =>{
       } else {
         getData(`http://localhost:3000/items?type=${response}`).then((data) =>{
           renderItems(data,tbody)
+            // получаем таблицу
+            const styleTable = tableParent.querySelector('tbody')
+            let styleTableLength = +styleTable.children.length
+            // на каждый добавленный элемент в ограничим ширин =у 55 пискслей на элемент
+            tableParent.style.maxHeight = styleTableLength * 55 + 'px'
+            console.log(styleTable.children.length);
         })
       }
 
@@ -50,6 +56,8 @@ const repairTypes = () =>{
 
     }
   })
+
+
 
   renderItemsFunc()
 

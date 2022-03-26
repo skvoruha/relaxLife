@@ -200,7 +200,7 @@ const typesRepairs  = ()=>{
         navRepairTypesNav.init()
         navRepairTypesNav.enable()
         svgAll.forEach(e => {
-          e.style.left = '30%'
+          e.style.left = '34%'
         });
       } else  if (window.innerWidth > 786 && window.innerWidth < 986) {
         svgAll.forEach(e => {
@@ -215,6 +215,7 @@ const typesRepairs  = ()=>{
       svgAll.forEach(e => {
         e.style.left = '14%'
       });
+      svgAll[4].style.left = '10%'
       // navRepairTypesNav.disable()
       }
     },400)
