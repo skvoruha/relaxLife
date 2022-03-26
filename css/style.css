@@ -9173,3 +9173,6 @@ strong {
 .df {
   display: flex;
 }
+.nav-list.nav-list-repair.swiper-wrapper.swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-lock {
+  bottom: 0;
+}
