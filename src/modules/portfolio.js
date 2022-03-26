@@ -8,6 +8,10 @@ const modal = () =>{
   const portfolio = document.getElementById('portfolio')
   const portfolioSlider = portfolio.querySelector('.portfolio-slider')
   const portfolioModal = document.querySelector('.popup-dialog-portfolio')
+
+  const popupPortfolio = document.querySelector('.popup-portfolio')
+
+  console.log(popupPortfolio);
   // получаем все слайды по которым мы нажимаем
   const portfolioSliderSlideFrame = portfolioSlider.querySelectorAll('.portfolio-slider__slide-frame')
   // получаем элементы с текстами
@@ -20,9 +24,11 @@ const modal = () =>{
 
   // popup-dialog-portfolio
   const openPortfolioModal = (e)=>{
+    popupPortfolio.classList.add('visibility-visible')
     portfolioModal.classList.add('visibility-visible')
   }
   const closePortfolioModal = (e)=>{
+    popupPortfolio.classList.remove('visibility-visible')
     portfolioModal.classList.remove('visibility-visible')
   }
   const openTextProtfolio = (count) =>{
